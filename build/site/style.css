@@ -177,11 +177,11 @@ div.post-list {
         }
     }
 
-    div.wip-post a {
+    div.private-post a {
         color: var(--blue);
     }
 
-    div.draft-post a {
+    div.hidden-post a {
         color: var(--aqua);
     }
 }

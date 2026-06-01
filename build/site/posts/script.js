@@ -9,8 +9,8 @@ console.log(manifest);
 manifest.forEach((post) => {
     const element = document.createElement("div");
     element.classList.add("post-item");
-    if (post.wip) element.classList.add("wip-post");
-    if (post.draft) element.classList.add("draft-post");
+    if (post.private) element.classList.add("private-post");
+    if (post.hidden) element.classList.add("hidden-post");
 
     const title = document.createElement("h2");
     const link = document.createElement("a");

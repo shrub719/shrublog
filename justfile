@@ -9,12 +9,12 @@ get-posts:
     fi
     cd src && git pull
 
-setup: clean get-posts
+setup: clean
     mkdir -p shrublog/posts/assets
     cp -r build/site/** shrublog/
     cp -r src/assets/** shrublog/posts/assets/
 
-build: setup
+build: setup get-posts
     python3 build/main.py src/ shrublog/
 
 serve:
@@ -23,3 +23,6 @@ serve:
 [default]
 dev: setup
     python3 build/main.py src/ shrublog/ dev
+
+alias upd := get-posts
+

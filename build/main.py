@@ -16,15 +16,14 @@ MD_CONFIG = {
 }
 
 
-def convert_post(file, posts_dir, post_template, head, wip=False, draft=False):
+def convert_post(file, posts_dir, post_template, head, private=False, hidden=False):
     lines = file.read_text(encoding="utf-8").splitlines(keepends=True)
     
     id = file.stem
-    if wip: id = id + ".wip"
-    if draft: id = id + ".draft"
+    if private or hidden: id = id + ".wip"
         
     title = lines[0].rstrip("\n").lstrip("#").strip()
-    pre = "[WIP] " if wip else "[DRAFT] " if draft else ""
+    pre = "[private] " if private else "[hidden] " if hidden else ""
     title = pre + title
 
     subtitle = lines[1].rstrip("\n")
@@ -53,7 +52,7 @@ def convert_post(file, posts_dir, post_template, head, wip=False, draft=False):
     
     print("    " + pre + id)
 
-    return id, title, subtitle, date, wip, draft
+    return id, title, subtitle, date, private, hidden
 
 
 def clean_string(s):
@@ -74,8 +73,8 @@ def create_manifest(posts, output_dir, posts_dir):
     "title": "{title}",
     "subtitle": "{subtitle}",
     "date": "{date}",
-    "wip": {wip},
-    "draft": {draft}
+    "private": {private},
+    "hidden": {hidden}
   }},\n"""
 
     manifest = "[\n"
@@ -86,8 +85,8 @@ def create_manifest(posts, output_dir, posts_dir):
             title=clean_string(post[1]),
             subtitle=clean_string(post[2]),
             date=post[3],
-            wip="true" if post[4] else "false",
-            draft="true" if post[5] else "false"
+            private="true" if post[4] else "false",
+            hidden="true" if post[5] else "false"
         )
 
     manifest = manifest[:-2] + "\n]"
@@ -110,10 +109,10 @@ def build(source_dir, output_dir, is_dev):
     source_posts = source_dir / "posts"
 
     # almost complete posts, sent out for testing
-    source_drafts = source_dir / "drafts"
+    source_hidden = source_dir / "hidden"
 
     # incomplete posts, only viewable locally
-    source_wip = source_dir / "wip"
+    source_private = source_dir / "private"
 
     post_template = POST_TEMPLATE_PATH.read_text(encoding="utf-8")
     head = HEAD_PATH.read_text(encoding="utf-8")
@@ -127,19 +126,19 @@ def build(source_dir, output_dir, is_dev):
 
         posts.append(convert_post(file, posts_dir, post_template, head))
 
-    for file in source_drafts.iterdir():
+    for file in source_hidden.iterdir():
         if file.suffix != ".md" or not file.is_file():
             continue
 
-        post = convert_post(file, posts_dir, post_template, head, draft=True)
+        post = convert_post(file, posts_dir, post_template, head, hidden=True)
         if is_dev: posts.append(post)
 
     if is_dev:
-        for file in source_wip.iterdir():
+        for file in source_private.iterdir():
             if file.suffix != ".md" or not file.is_file():
                 continue
 
-            posts.append(convert_post(file, posts_dir, post_template, head, wip=True))
+            posts.append(convert_post(file, posts_dir, post_template, head, private=True))
 
     create_manifest(posts, output_dir, posts_dir)
 
