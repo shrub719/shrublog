@@ -15,14 +15,14 @@ setup: clean
     cp -r src/assets/** shrublog/posts/assets/
 
 build: setup get-posts
-    python3 build/main.py src/ shrublog/
+    python3 build/main.py src shrublog
 
 serve:
     python3 -m http.server
 
 [default]
 dev: setup
-    python3 build/main.py src/ shrublog/ dev
+    python3 build/main.py src shrublog dev
 
 alias upd := get-posts
 
