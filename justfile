@@ -1,7 +1,15 @@
+src := "https://github.com/shrub719/sb-src"
+
 clean:
     -rm -r shrublog
 
-setup: clean
+get-posts:
+    if [ ! -d "src" ]; then \
+      git clone {{src}} src; \
+    fi
+    cd src && git pull
+
+setup: clean get-posts
     mkdir -p shrublog/posts/assets
     cp -r build/site/** shrublog/
     cp -r src/assets/** shrublog/posts/assets/
