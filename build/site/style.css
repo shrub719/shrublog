@@ -1,0 +1,230 @@
+:root{
+    --body: "Ubuntu", sans-serif;
+    --heading: "Ubuntu Mono", monospace;
+    --code: "Ubuntu Mono", monospace;
+
+    --green: MediumSeaGreen;
+    --blue: CornflowerBlue;
+    --aqua: LightSeaGreen;
+    --black: #111;
+    --grey: #222;
+    --text: #ddd;
+    --hint: #bbb;
+    --subtle-hint: #777;
+
+    font-size: 18px;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--text);
+    font-family: var(--body);
+}
+
+h1, h2, h3 {
+    font-family: var(--heading);
+}
+
+a {
+    color: var(--green);
+}
+
+strong {
+    color: var(--green);
+}
+
+div.title {
+    max-width: 900px;
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+
+    img {
+        display: block;
+        margin: auto;
+        width: 100px;
+    }
+    
+    p {
+        color: var(--hint);
+        margin-top: -12px;
+        margin-bottom: 12px;
+    }
+
+    .date {
+        font-family: var(--code);
+        color: var(--subtle-hint);
+        margin-top: 0;
+        font-size: 16px;
+    }
+}
+
+div.post {
+    max-width: 750px;    
+    padding: 10px;
+    margin: auto;
+    line-height: 24px;
+
+    p {
+        line-height: 24px;
+        text-indent: 18px;
+    }
+
+    sup {
+        vertical-align: super;
+        line-height: 0;
+    }
+
+    h2 {
+        text-indent: 18px;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        max-width: 100%;
+        /* maximum height?? */
+    }
+
+    code {
+        font-family: var(--code);
+        background-color: var(--text);
+        color: var(--black);
+        padding: 2px 5px 2px 5px;
+        border-radius: 2px;
+    }
+
+    pre {
+        background-color: var(--text);
+        margin: 18px;
+        padding: 12px;
+        border-radius: 2px;
+    }
+
+    pre code {
+        padding: 0;
+    }
+
+    mjx-container {
+        overflow-x: auto;
+        overflow-y: clip;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    div.footnote {
+        p {
+            text-indent: 0;
+        }   
+
+        a.footnote-backref {
+            text-decoration: none;
+            font-family: var(--code);
+        }
+    }
+}
+
+footer {
+    font-family: var(--code);
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 36px;
+
+    a {
+        text-decoration: none;
+    }
+
+    .date {
+        color: var(--subtle-hint);
+        margin-top: 0;
+        font-size: 16px;
+    }
+}
+
+div.post-list {
+    border-radius: 2px;
+    margin: auto;
+    text-align: left;
+    max-width: 750px;
+
+    div.post-item {
+        background-color: var(--grey);
+        padding: 16px;
+        margin: 16px;
+
+        h2 {
+            margin-top: 0;
+            padding: 5px;
+            
+            a {
+                text-decoration: none;
+            }
+        }
+
+        p {
+            margin-top: -5px;
+            margin-left: 18px;
+            color: var(--hint);
+        }
+        
+        .date {
+            font-family: var(--code);
+            color: var(--subtle-hint);
+            margin-top: 0;
+            font-size: 16px;
+        }
+    }
+
+    div.wip-post a {
+        color: var(--blue);
+    }
+
+    div.draft-post a {
+        color: var(--aqua);
+    }
+}
+
+.welcome {
+    padding: 20px;
+
+    white-space: pre;
+    font-family: monospace;
+    line-height: 1.1;
+
+    display: block;
+    text-align: left;
+    margin: auto;
+
+    .desktop-only {
+        color: blue;
+    }
+
+    b {
+        font-weight: normal;
+        color: var(--green);
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+.welcome.desktop-only {
+    width: 74ch;
+}
+.welcome.mobile-only {
+    width: 20ch;
+}
+
+.desktop-only {
+    @media only screen and (max-width: 860px) {
+        display: none;
+    }
+}
+
+.mobile-only {
+    @media only screen and (min-width: 860px) {
+        display: none;
+    }
+}
