@@ -14,7 +14,7 @@ setup: clean
     cp -r build/site/** shrublog/
     cp -r src/assets/** shrublog/posts/assets/
 
-build: setup get-posts
+build: get-posts setup
     python3 build/main.py src shrublog
 
 serve:
