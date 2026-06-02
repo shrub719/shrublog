@@ -42,7 +42,8 @@ div.title {
     img {
         display: block;
         margin: auto;
-        width: 100px;
+        margin-top: 24px;
+        width: 300px;
     }
     
     p {
