@@ -112,6 +112,14 @@ div.post {
 
     table {
         margin: auto;
+
+        th img {
+            padding-bottom: 12px;
+        }
+    }
+
+    weak {
+        color: var(--hint);
     }
 
     div.footnote {
