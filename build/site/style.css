@@ -129,6 +129,10 @@ div.post {
         th img {
             padding-bottom: 12px;
         }
+
+        th {
+            padding-right: 8px;
+        }
     }
 
     weak {
