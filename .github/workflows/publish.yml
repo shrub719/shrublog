@@ -8,6 +8,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+paths:
+  - 'build/**'
 
 permissions:
   contents: read
