@@ -1,3 +1,19 @@
+function rgbToHex(rgb) {
+  return "#" + (1 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]).toString(16).slice(1);
+}
+
+function randomColour() {
+    const colour = [60, 179, 113];
+    const range = 50;
+    
+    for (let i = 0; i < 3; i++) {
+        colour[i] = colour[i] + Math.floor(Math.random() * range * 2 - range);
+    }
+
+    return rgbToHex(colour);
+}
+
+
 const manifest = INSERT_MANIFEST_HERE;
 manifest.sort((a, b) => (
     b.date.localeCompare(a.date)
@@ -16,6 +32,7 @@ manifest.forEach((post) => {
     const link = document.createElement("a");
     link.textContent = post.title;
     link.href = "./" + post.id;
+    if (!post.private && !post.hidden) link.style.color = randomColour();
     title.appendChild(link);
 
     const subtitle = document.createElement("p");
