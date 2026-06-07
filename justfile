@@ -17,6 +17,9 @@ setup: clean
 build: get-posts setup
     python3 build/main.py src shrublog
 
+publish:
+    gh workflow run Publish
+
 serve:
     python3 -m http.server
 
