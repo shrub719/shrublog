@@ -4,12 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'build/**'
   pull_request:
     branches:
       - main
   workflow_dispatch:
-paths:
-  - 'build/**'
 
 permissions:
   contents: read
