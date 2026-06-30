@@ -132,6 +132,11 @@ div.post {
 
         th {
             padding-right: 8px;
+            background-color: var(--grey);
+        }
+
+        th, td {
+            padding: 10px;
         }
     }
 
