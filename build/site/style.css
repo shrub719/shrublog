@@ -90,6 +90,7 @@ div.post {
 
     h2 {
         text-indent: 18px;
+        line-height: 1.1;
     }
 
     img {
@@ -133,6 +134,11 @@ div.post {
         th {
             padding-right: 8px;
             background-color: var(--grey);
+        }
+
+        th:has(img) {
+            /* it looks like this doesn't even exist yet */
+            background-color: none !important;
         }
 
         th, td {
