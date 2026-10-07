@@ -10,9 +10,9 @@ get-posts:
     cd src && git pull
 
 setup: clean
-    mkdir -p shrublog/posts/assets
+    mkdir -p shrublog/assets
     cp -r build/site/** shrublog/
-    cp -r src/assets/** shrublog/posts/assets/
+    cp -r src/assets/** shrublog/assets/
 
 build: get-posts setup
     python3 build/main.py src shrublog

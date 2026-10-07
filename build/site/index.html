@@ -1,59 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>posts - shrublog</title>
+
         <meta charset="utf-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>shrublog</title>
-        <meta name="title" content="shrublog">
+        <link rel="stylesheet" href="/shrublog/style.css">
+        <link rel="icon" type="image/x-icon" href="/shrublog/assets/favicon.ico">
 
-        <link rel="stylesheet" href="./style.css">
-        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    </head>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+        <script>
+        MathJax = {
+          tex: {
+            inlineMath: {'[+]': [['$', '$']]}
+          },
+        };
+        </script>
+        <script defer src="/shrublog/include/tex-chtml.js"></script>
+
+        <link rel="stylesheet" href="/shrublog/include/default.min.css">
+        <script src="/shrublog/include/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+   </head>
 
     <body>
-        <p class="welcome desktop-only">
-<b>
-              ▄▄                                                         
-              ██                               ██                        
-██   ██ ▄█▀█▄ ██ ▄████ ▄███▄ ███▄███▄ ▄█▀█▄   ▀██▀▀ ▄███▄    i'm shrub! 
-██ █ ██ ██▄█▀ ██ ██    ██ ██ ██ ██ ██ ██▄█▀    ██   ██ ██                
- ██▀██  ▀█▄▄▄ ██ ▀████ ▀███▀ ██ ██ ██ ▀█▄▄▄    ██   ▀███▀                
-                                                                         
-          ▄▄                  ▄▄                ▄▄    ▄▄              ▄▄ 
-     ██   ██                  ██                ██    ██              ██ 
-    ▀██▀▀ ████▄ ▄█▀█▄   ▄█▀▀▀ ████▄ ████▄ ██ ██ ████▄ ██ ▄███▄ ▄████  ██ 
-     ██   ██ ██ ██▄█▀   ▀███▄ ██ ██ ██ ▀▀ ██ ██ ██ ██ ██ ██ ██ ██ ██  ▀▀ 
-     ██   ██ ██ ▀█▄▄▄   ▄▄▄█▀ ██ ██ ██    ▀██▀█ ████▀ ██ ▀███▀ ▀████  ██ 
-                                                                  ██     
-                                                                ▀▀▀
-</b>
-    ^
-   / <span class="anim-blink">o</span>`--,                      <a href="./posts">[posts]</a>     <a href="..">[home]</a>
-     /--
+        <div class="title">
+            <img src="/shrublog/assets/shitty-logo.png" />
+            <h1>post index</h1>
+        </div>
 
-        </p>
-
-        <p class="welcome mobile-only">
-<b><strong>welcome to
-
-      the shrublog!</strong></b>
-
-
-      ^
-     / <span class="anim-blink">o</span>`--,
-       /--
-
-
-     <a href="./posts">[posts]</a>
-
-     <a href="..">[home]</a>
-        </p>
-
+        <div class="post-list" id="post-list"></div>
         <script src="./script.js"></script>
     </body>
 </html>

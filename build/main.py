@@ -103,7 +103,7 @@ def create_manifest(posts, output_dir, posts_dir):
 def build(source_dir, output_dir, is_dev):
     source_dir = Path(source_dir)
     output_dir = Path(output_dir)
-    posts_dir = output_dir / "posts"
+    posts_dir = output_dir
 
     # complete/published posts
     source_posts = source_dir / "posts"
