@@ -29,7 +29,7 @@ def convert_post(file, posts_dir, post_template, head, private=False, hidden=Fal
     subtitle = lines[1].rstrip("\n")
     date = lines[2].rstrip("\n")
 
-    body_md = "".join(lines[3:])
+    body_md = "".join(lines[3:]).replace("\\", "&#92;")
     
     body_html = markdown.markdown(
         body_md,
